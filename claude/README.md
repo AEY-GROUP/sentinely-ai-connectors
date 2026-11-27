@@ -27,7 +27,7 @@ Then run `/mcp` once to sign in to Sentinely in your browser and choose your wor
 
 This plugin is configuration and instructions only. It runs no code on your computer.
 
-- **One remote MCP connector** to `https://app.sentinely.co/api/mcp` over Streamable HTTP, with 33 tools for listening,
+- **One remote MCP connector** to `https://app.sentinely.co/api/mcp` over Streamable HTTP, with 34 tools for projects, listening,
   topics, competitors, revenue signals and brand protection cases.
 - **One skill**, `sentinely`, which tells Claude which tool fits each question, which writes confirm first, and to
   treat captured source text as untrusted data.

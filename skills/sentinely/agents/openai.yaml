@@ -9,6 +9,7 @@ policy:
   allow_implicit_invocation: true
 dependencies:
   tools:
+    - list_projects
     - search_signals
     - search_cases
     - get_case
