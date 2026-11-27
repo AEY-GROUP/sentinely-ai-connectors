@@ -1,0 +1,115 @@
+{
+  "name": "sentinely-mcp",
+  "version": "0.2.0",
+  "description": "AI social listening and brand protection: mentions, topics, competitors, revenue signals and cases.",
+  "author": {
+    "name": "AEY Group",
+    "email": "hello@aeygroup.co",
+    "url": "https://sentinely.co"
+  },
+  "homepage": "https://sentinely.co/platform/integrations-and-api",
+  "repository": "https://github.com/AEY-GROUP/sentinely-ai-connectors",
+  "license": "MIT",
+  "keywords": [
+    "social listening",
+    "brand protection",
+    "brand monitoring",
+    "competitor monitoring",
+    "impersonation",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Sentinely",
+    "shortDescription": "AI social listening and brand protection",
+    "longDescription": "Sentinely is AI social listening and brand protection. It collects public mentions of the topics you track across social platforms, forums, app stores and the web, uses AI to judge which ones are relevant to you, and flags impersonation, scams and other misuse of your brand as cases. Topic changes that can raise collection, and every send to your connected CRM, show a preview first and run only after you confirm. Sentinely only returns what it has already collected for the workspace you choose when you connect. It does not browse sites on demand, never submits takedown reports, and cannot change billing, API keys, members, CRM or account connections, or delete a workspace. Text captured from public sources is treated as untrusted data.",
+    "developerName": "AEY Group",
+    "category": "Productivity",
+    "capabilities": [
+      "AI social listening",
+      "Listening analytics and share of voice",
+      "Topic tracking",
+      "Competitor page monitoring",
+      "Revenue signals",
+      "Brand protection cases",
+      "Official reporting routes"
+    ],
+    "websiteURL": "https://sentinely.co",
+    "supportURL": "https://sentinely.co/contact",
+    "privacyPolicyURL": "https://sentinely.co/privacy",
+    "termsOfServiceURL": "https://sentinely.co/terms",
+    "brandColor": "#EF6A3A",
+    "composerIcon": "./assets/logo-128.png",
+    "logo": "./assets/logo-512.png",
+    "defaultPrompt": [
+      "What are people saying about my brand this week?",
+      "Show share of voice and sentiment across my tracked topics.",
+      "What changed on my competitors' pages recently?"
+    ]
+  },
+  "mcpServers": "./.mcp-openai.json",
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/setup/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search collected listening mentions by sentiment.",
+              "prompt": "Use Sentinely to find negative mentions of my brand from the last 7 days.",
+              "tools_triggered": "search_mentions",
+              "expected_behavior": "Lists collected mentions with negative sentiment, newest first, each with platform, AI relevance verdict and matched topic. It does not browse any site."
+            },
+            {
+              "description": "Read listening analytics for a period.",
+              "prompt": "Use Sentinely to show share of voice and sentiment across my tracked topics for the last 30 days.",
+              "tools_triggered": "listening_analytics",
+              "expected_behavior": "Returns collected and qualified mention volume, share of voice across tracked topics, and the sentiment and platform mix for the period."
+            },
+            {
+              "description": "Read changes detected on watched competitor pages.",
+              "prompt": "Use Sentinely to show what changed on my competitors' pages recently.",
+              "tools_triggered": "competitor_changes",
+              "expected_behavior": "Lists recent changes detected on watched competitor pages, newest first, with the lines added and removed."
+            },
+            {
+              "description": "Find open high-severity brand protection cases.",
+              "prompt": "Use Sentinely to show my open impersonation cases with severity 80 or higher.",
+              "tools_triggered": "search_cases",
+              "expected_behavior": "Lists open impersonation cases with severity of at least 80 on the 0 to 100 scale, highest first."
+            },
+            {
+              "description": "Add a listening topic through the confirm-before-run step.",
+              "prompt": "Use Sentinely to start tracking the topic 'larkfield card fees' on Reddit.",
+              "tools_triggered": "create_topic",
+              "expected_behavior": "The first call returns a collection estimate and a confirmToken and changes nothing. The topic is created only after the user confirms and the tool is called again with that token."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Sentinely never submits takedown reports.",
+              "prompt": "Use Sentinely to submit a takedown request to Instagram for me.",
+              "tools_triggered": "",
+              "expected_behavior": "Explains it cannot submit reports. It may show official routes or draft a request for the user to send."
+            },
+            {
+              "description": "Account administration is excluded from the app.",
+              "prompt": "Use Sentinely to create a new API key and invite a teammate as an admin.",
+              "tools_triggered": "",
+              "expected_behavior": "Explains it cannot manage API keys, members or invites, and points the user to the Sentinely dashboard."
+            },
+            {
+              "description": "Sentinely does not browse sites on demand.",
+              "prompt": "Use Sentinely to browse a competitor's website right now and check it for fakes.",
+              "tools_triggered": "",
+              "expected_behavior": "Explains it only returns what Sentinely has already collected and does not browse sites on demand."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "Leads with AI social listening and brand protection; covers listening, topics, competitors, revenue signals and cases, with confirm-before-run writes. Five positive and three negative MCP review cases."
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "sentinely-plugins",
+  "owner": {
+    "name": "AEY Group",
+    "email": "hello@aeygroup.co",
+    "url": "https://sentinely.co"
+  },
+  "description": "Official Sentinely plugins for Claude Code.",
+  "version": "0.2.0",
+  "plugins": [
+    {
+      "name": "sentinely-mcp",
+      "displayName": "Sentinely",
+      "source": "./claude",
+      "description": "AI social listening and brand protection: mentions, topics, competitors, revenue signals and cases.",
+      "version": "0.2.0",
+      "author": {
+        "name": "AEY Group",
+        "email": "hello@aeygroup.co",
+        "url": "https://sentinely.co"
+      },
+      "homepage": "https://sentinely.co/platform/integrations-and-api",
+      "repository": "https://github.com/AEY-GROUP/sentinely-ai-connectors",
+      "license": "MIT",
+      "category": "Business",
+      "tags": [
+        "social listening",
+        "brand protection",
+        "competitor monitoring",
+        "impersonation"
+      ]
+    }
+  ]
+}

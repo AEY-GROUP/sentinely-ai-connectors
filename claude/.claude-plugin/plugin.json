@@ -1,0 +1,27 @@
+{
+  "name": "sentinely-mcp",
+  "displayName": "Sentinely",
+  "description": "AI social listening and brand protection: mentions, topics, competitors, revenue signals and cases.",
+  "version": "0.2.0",
+  "author": {
+    "name": "AEY Group",
+    "email": "hello@aeygroup.co",
+    "url": "https://sentinely.co"
+  },
+  "homepage": "https://sentinely.co/platform/integrations-and-api",
+  "repository": "https://github.com/AEY-GROUP/sentinely-ai-connectors",
+  "license": "MIT",
+  "keywords": [
+    "social listening",
+    "brand protection",
+    "brand monitoring",
+    "competitor monitoring",
+    "impersonation",
+    "mcp"
+  ],
+  "documentationUrl": "https://sentinely.co/platform/integrations-and-api",
+  "supportUrl": "https://sentinely.co/contact",
+  "privacyPolicyUrl": "https://sentinely.co/privacy",
+  "termsOfServiceUrl": "https://sentinely.co/terms",
+  "mcpServers": "./.mcp.json"
+}

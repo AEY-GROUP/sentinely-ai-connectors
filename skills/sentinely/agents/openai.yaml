@@ -1,0 +1,44 @@
+interface:
+  display_name: Sentinely
+  short_description: AI social listening and brand protection.
+  icon_small: ./assets/logo-128.png
+  icon_large: ./assets/logo-512.png
+  brand_color: '#EF6A3A'
+  default_prompt: What are people saying about my brand this week?
+policy:
+  allow_implicit_invocation: true
+dependencies:
+  tools:
+    - search_signals
+    - search_cases
+    - get_case
+    - get_monthly_report
+    - get_removal_options
+    - draft_removal_request
+    - create_case
+    - annotate_case
+    - search_mentions
+    - get_mention
+    - listening_overview
+    - listening_analytics
+    - list_topics
+    - list_feeds
+    - get_feed
+    - source_health
+    - list_competitors
+    - competitor_changes
+    - search_revenue_signals
+    - get_revenue_signal
+    - revenue_pipeline
+    - list_accounts
+    - list_captures
+    - get_report
+    - create_topic
+    - update_topic
+    - pause_topic
+    - label_mention
+    - review_revenue_signal
+    - route_signal
+    - add_competitor
+    - remove_competitor
+    - update_case_status

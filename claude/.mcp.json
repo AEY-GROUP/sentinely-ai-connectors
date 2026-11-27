@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sentinely": {
+      "type": "http",
+      "url": "https://app.sentinely.co/api/mcp"
+    }
+  }
+}

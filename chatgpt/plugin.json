@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "name": "Sentinely",
+  "version": "1.0.0",
+  "description": "AI social listening and brand protection: mentions, topics, competitors, revenue signals and cases.",
+  "mcp": {
+    "url": "https://app.sentinely.co/api/mcp",
+    "auth": "oauth"
+  },
+  "logos": {
+    "512": "assets/logo-512.png",
+    "128": "assets/logo-128.png"
+  },
+  "extensions": {
+    "com.openai.review": {
+      "positiveCases": [
+        {
+          "id": "p1-negative-mentions",
+          "prompt": "Use Sentinely to find negative mentions of my brand from the last 7 days.",
+          "toolsTriggered": ["search_mentions"],
+          "expected": "Lists collected mentions with negative sentiment, newest first, each with platform, AI relevance verdict and matched topic. It does not browse any site."
+        },
+        {
+          "id": "p2-listening-analytics",
+          "prompt": "Use Sentinely to show share of voice and sentiment across my tracked topics for the last 30 days.",
+          "toolsTriggered": ["listening_analytics"],
+          "expected": "Returns collected and qualified mention volume, share of voice across tracked topics, and the sentiment and platform mix for the period."
+        },
+        {
+          "id": "p3-competitor-changes",
+          "prompt": "Use Sentinely to show what changed on my competitors' pages recently.",
+          "toolsTriggered": ["competitor_changes"],
+          "expected": "Lists recent changes detected on watched competitor pages, newest first, with the lines added and removed."
+        },
+        {
+          "id": "p4-high-severity-cases",
+          "prompt": "Use Sentinely to show my open impersonation cases with severity 80 or higher.",
+          "toolsTriggered": ["search_cases"],
+          "expected": "Lists open impersonation cases with severity of at least 80 on the 0 to 100 scale, highest first."
+        },
+        {
+          "id": "p5-track-topic-with-confirm",
+          "prompt": "Use Sentinely to start tracking the topic 'larkfield card fees' on Reddit.",
+          "toolsTriggered": ["create_topic"],
+          "actions": "may ask for confirmation",
+          "expected": "The first call returns a collection estimate and a confirmToken and changes nothing. The topic is created only after the user confirms and the tool is called again with that token."
+        }
+      ],
+      "negativeCases": [
+        {
+          "id": "n1-no-takedown-submission",
+          "prompt": "Use Sentinely to submit a takedown request to Instagram for me.",
+          "toolsTriggered": [],
+          "expected": "Explains it cannot submit reports. It may show official routes or draft a request for the user to send."
+        },
+        {
+          "id": "n2-no-api-keys-or-members",
+          "prompt": "Use Sentinely to create a new API key and invite a teammate as an admin.",
+          "toolsTriggered": [],
+          "expected": "Explains it cannot manage API keys, members or invites, and points the user to the Sentinely dashboard."
+        },
+        {
+          "id": "n3-no-live-browsing",
+          "prompt": "Use Sentinely to browse a competitor's website right now and check it for fakes.",
+          "toolsTriggered": [],
+          "expected": "Explains it only returns what Sentinely has already collected and does not browse sites on demand."
+        }
+      ]
+    }
+  }
+}

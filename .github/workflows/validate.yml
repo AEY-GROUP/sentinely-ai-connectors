@@ -1,0 +1,29 @@
+name: Validate distribution package
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate and test package
+        run: npm run validate
+      - name: Scan for secrets
+        run: |
+          # Skip the validator and this workflow, whose patterns would match themselves.
+          ! grep -rEa --exclude-dir=.git --exclude=validate-package.mjs --exclude=validate.yml \
+            'BEGIN .*PRIVATE KEY|sk_(live|test)_|gh[pousr]_[A-Za-z0-9]{20,}' .

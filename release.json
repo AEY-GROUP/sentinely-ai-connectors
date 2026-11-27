@@ -1,0 +1,47 @@
+{
+  "packageVersion": "0.2.0",
+  "server": {
+    "endpoint": "https://app.sentinely.co/api/mcp",
+    "transport": "streamable-http",
+    "authentication": "oauth"
+  },
+  "tools": [
+    "search_signals",
+    "search_cases",
+    "get_case",
+    "get_monthly_report",
+    "get_removal_options",
+    "draft_removal_request",
+    "create_case",
+    "annotate_case",
+    "search_mentions",
+    "get_mention",
+    "listening_overview",
+    "listening_analytics",
+    "list_topics",
+    "list_feeds",
+    "get_feed",
+    "source_health",
+    "list_competitors",
+    "competitor_changes",
+    "search_revenue_signals",
+    "get_revenue_signal",
+    "revenue_pipeline",
+    "list_accounts",
+    "list_captures",
+    "get_report",
+    "create_topic",
+    "update_topic",
+    "pause_topic",
+    "label_mention",
+    "review_revenue_signal",
+    "route_signal",
+    "add_competitor",
+    "remove_competitor",
+    "update_case_status"
+  ],
+  "assets": {
+    "logo-128.png": "4d421d2372f6f3e4115141f0ee86c3d110f8335dd2af14a2776651bbf26bdd1c",
+    "logo-512.png": "cc9c95431bc5756a65e8fdbade267e3024935cab73eefd04c8076dc4e376f689"
+  }
+}
