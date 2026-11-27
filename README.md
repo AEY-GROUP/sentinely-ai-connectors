@@ -6,7 +6,7 @@ matter to you, and flags impersonation, scams and other misuse of your brand as 
 configuration, plugin manifests, skills and listing copy; the server itself runs at sentinely.co.
 
 The authenticated Streamable HTTP endpoint (OAuth with dynamic client registration) is
-`https://app.sentinely.co/api/mcp`. It lists 33 tools: 22 reads and 11 writes. [docs/TOOLS.md](docs/TOOLS.md) lists
+`https://app.sentinely.co/api/mcp`. It lists 34 tools: 23 reads and 11 writes. [docs/TOOLS.md](docs/TOOLS.md) lists
 each one with its OAuth scope and confirmation behavior.
 
 - **Listening:** mentions, the AI relevance verdict, topics, feeds, source health, share of voice and sentiment.
